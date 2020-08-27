@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/views/MainView.qml</file>
+        <file>qml/components/AppIcon.qml</file>
+        <file>assets/fonts/fontawesome.otf</file>
+        <file>assets/fonts/Montserrat-Regular.ttf</file>
+        <file>qml/components/AppText.qml</file>
+        <file>qml/views/SignInView.qml</file>
+        <file>qml/views/SignUpView.qml</file>
+        <file>qml/views/DashboardView.qml</file>
+        <file>qml/views/WorkoutView.qml</file>
+        <file>qml/components/FramelessTextInput.qml</file>
+        <file>assets/images/4195594-05.png</file>
+        <file>assets/images/Profile Picture.jpg</file>
+        <file>qml/components/DailyWidgetDelegate.qml</file>
+        <file>qml/components/RoundProgressBar.qml</file>
+    </qresource>
+</RCC>
