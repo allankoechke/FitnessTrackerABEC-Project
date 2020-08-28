@@ -13,7 +13,10 @@ Rectangle {
 
     property bool isCounterRunning: false
     property string startTime: ""
-    property string timerTime: ""
+    property string timerTimeOne: ""
+    property string timerTimeTwo: ""
+    property string setTime: ""
+    property  int hb: 0
     property var days: ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
 
     function getDayOfWeek()
@@ -23,30 +26,33 @@ Rectangle {
         return parseInt(index)
     }
 
-    function parseDateToString(df)
+    Connections
     {
-        console.log(df)
-        var min = df%3600000
-        var sec = min%60000
-        var usec = sec%1000
-        var hr = Math.floor(df/3600000)<10? "0"+Math.floor(df/3600000).toString():Math.floor(df/3600000).toString()
-        var _min = Math.floor(min/60000)<10? "0"+Math.floor(min/60000).toString():Math.floor(df/60000).toString()
-        var _sec = Math.floor(sec/1000)<10? "0"+Math.floor(sec/1000).toString():Math.floor(df/1000).toString()
+        target: QmlInterface
 
-        return hr + ":" + _min + ":" + _sec + " " + usec.toString()
+        function onEmitTimeChanged(hrs)
+        {
+            timerTimeOne = hrs;
+        }
+
+        function onEmitMsecChanged(m_msecs)
+        {
+            timerTimeTwo = m_msecs;
+        }
     }
+
 
     Timer
     {
         repeat: true
         running: isCounterRunning
-        interval: 100
+        interval: 10
 
         onTriggered: {
 
             var df = (new Date()).getTime()-startTime
 
-            timerTime = parseDateToString(df)
+            QmlInterface.getDateInHMSMs(df);  //.split("-"); //parseDateToString(df)
         }
     }
 
@@ -55,6 +61,30 @@ Rectangle {
         {
             startTime = (new Date()).getTime()
             console.log(startTime)
+        }
+    }
+
+    Component.onCompleted: {
+        today = days[getDayOfWeek()]
+
+        if(checkIfDayExists(today)){
+            var arr = getTimeSaved(today)
+            var a = arr[0]<10? "0"+arr[0].toString():arr[0].toString()
+            var b = arr[1]<10? "0"+arr[1].toString():arr[1].toString()
+            setTime = a + ":" + b;
+        }
+    }
+
+    Timer
+    {
+        interval: 3000
+        repeat: true
+        running: true
+
+        onTriggered: {
+            var rand = Math.floor(Math.random()*10)
+            var val = [74, 75, 76, 73, 70, 74, 75, 72, 70, 74]
+            hb = val[rand]
         }
     }
 
@@ -105,7 +135,7 @@ Rectangle {
             {
                 width: parent.width; height: width
 
-                val: 55
+                val: hb
                 anchors.centerIn: parent
 
                 AppText
@@ -175,6 +205,11 @@ Rectangle {
                 {
                     label: days[model.index]
                     isToday: getDayOfWeek()===index
+
+                    onClicked: {
+                        selected = days[model.index]
+                        activityPopup.open();
+                    }
                 }
             }
         }
@@ -190,7 +225,7 @@ Rectangle {
 
                 AppText
                 {
-                    text: qsTr("4:30 PM")
+                    text: setTime //qsTr("4:30 PM")
                     size: 15
                     color: "white"
 
@@ -239,14 +274,37 @@ Rectangle {
             }
         }
 
-        AppText
+        Item
         {
             visible: isCounterRunning
-            text: timerTime
-            size: 18
-            color: "white"
-
+            Layout.preferredHeight: 30
+            Layout.minimumWidth: 150
             Layout.alignment: Qt.AlignHCenter
+
+            RowLayout
+            {
+                anchors.fill: parent
+
+                AppText
+                {
+                    text: timerTimeOne
+                    size: 18
+                    color: "white"
+
+                    Layout.preferredWidth: 60
+                    horizontalAlignment: AppText.AlignLeft
+                }
+
+                AppText
+                {
+                    text: timerTimeTwo
+                    size: 18
+                    color: "white"
+
+                    Layout.preferredWidth: 20
+                    horizontalAlignment: AppText.AlignLeft
+                }
+            }
         }
 
         Rectangle

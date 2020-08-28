@@ -15,5 +15,12 @@
         <file>assets/images/Profile Picture.jpg</file>
         <file>qml/components/DailyWidgetDelegate.qml</file>
         <file>qml/components/RoundProgressBar.qml</file>
+        <file>qml/components/ActivityPopup.qml</file>
+        <file>qml/components/CustomSpinBox.qml</file>
+        <file>assets/images/EazerFit-10.jpg</file>
+        <file>assets/images/EazerFit-11.jpg</file>
+        <file>assets/images/EazerFit-12.jpg</file>
+        <file>assets/images/EazerFit-13.jpg</file>
+        <file>assets/images/EazerFit-14.jpg</file>
     </qresource>
 </RCC>

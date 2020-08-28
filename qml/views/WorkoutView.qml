@@ -44,35 +44,286 @@ Rectangle {
             id: grid
             Layout.alignment: Qt.AlignHCenter
             Layout.fillHeight: true
-            Layout.preferredWidth: root.width*0.8
+            Layout.fillWidth: true
+            Layout.leftMargin: 30
+            Layout.rightMargin: 30
+            clip: true
 
-            GridView
+            ColumnLayout
             {
-                width: grid.width
-                height: grid.height
-                anchors.left: parent.left
-                cellWidth: 150 //grid.width*0.5
-                cellHeight: 250 //grid.width*0.6
-                flow: Qt.LeftToRight
+                anchors.fill: parent
+                spacing: 2
 
-                model: 6
-                delegate: Component {
+                Item{
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: grid.width*0.6
 
-                    Rectangle
+                    RowLayout
                     {
-                        anchors.centerIn: parent
-                        width: 140
-                        height: 245
+                        anchors.fill: parent
+                        spacing: 2
 
                         Rectangle
                         {
-                            color: "yellow"
-                            anchors.fill: parent
-                            anchors.margins: 5
+                            color: "white"
+                            width: grid.width*0.48
+                            height: grid.width*0.6
 
-                            Image
-                            {
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+
+                            Image {
+                                source: "qrc:/assets/images/EazerFit-10.jpg"
+                                width: parent.width*0.9
+                                height: width
+
                                 anchors.centerIn: parent
+                            }
+
+                            Rectangle
+                            {
+                                color: "#002e4d"
+                                height: 25
+                                width: txt.width + 20
+                                radius: height/2
+
+                                anchors.bottom: parent.bottom
+                                anchors.bottomMargin: 5
+                                anchors.horizontalCenter: parent.horizontalCenter
+
+                                AppText
+                                {
+                                    id: txt
+                                    anchors.centerIn: parent
+
+                                    size: 12
+                                    color: "white"
+                                    text: qsTr("Back Shoulder")
+                                }
+                            }
+                        }
+
+                        Rectangle
+                        {
+                            color: "white"
+                            width: grid.width*0.48
+                            height: grid.width*0.6
+
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+
+                            Image {
+                                source: "qrc:/assets/images/EazerFit-10.jpg"
+                                width: parent.width*0.9
+                                height: width
+
+                                anchors.centerIn: parent
+                            }
+
+                            Rectangle
+                            {
+                                color: "#002e4d"
+                                height: 25
+                                width: txt1.width + 20
+                                radius: height/2
+
+                                anchors.bottom: parent.bottom
+                                anchors.bottomMargin: 5
+                                anchors.horizontalCenter: parent.horizontalCenter
+
+                                AppText
+                                {
+                                    id: txt1
+                                    anchors.centerIn: parent
+
+                                    size: 12
+                                    color: "white"
+                                    text: qsTr("Back")
+                                }
+                            }
+                        }
+                    }
+                }
+
+                Item{
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: grid.width*0.6
+
+                    RowLayout
+                    {
+                        anchors.fill: parent
+                        spacing: 2
+
+                        Rectangle
+                        {
+                            color: "white"
+                            width: grid.width*0.48
+                            height: grid.width*0.6
+
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+
+                            Image {
+                                source: "qrc:/assets/images/EazerFit-11.jpg"
+                                width: parent.width*0.9
+                                height: width
+
+                                anchors.centerIn: parent
+                            }
+
+                            Rectangle
+                            {
+                                color: "#002e4d"
+                                height: 25
+                                width: txt3.width + 20
+                                radius: height/2
+
+                                anchors.bottom: parent.bottom
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                anchors.bottomMargin: 5
+
+                                AppText
+                                {
+                                    id: txt3
+                                    anchors.centerIn: parent
+
+                                    size: 12
+                                    color: "white"
+                                    text: qsTr("Back of Arm")
+                                }
+                            }
+                        }
+
+                        Rectangle
+                        {
+                            color: "white"
+                            width: grid.width*0.48
+                            height: grid.width*0.6
+
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+
+                            Image {
+                                source: "qrc:/assets/images/EazerFit-12.jpg"
+                                width: parent.width*0.9
+                                height: width
+
+                                anchors.centerIn: parent
+                            }
+
+                            Rectangle
+                            {
+                                color: "#002e4d"
+                                height: 25
+                                width: txt4.width + 20
+                                radius: height/2
+
+                                anchors.bottom: parent.bottom
+                                anchors.bottomMargin: 5
+                                anchors.horizontalCenter: parent.horizontalCenter
+
+                                AppText
+                                {
+                                    id: txt4
+                                    anchors.centerIn: parent
+
+                                    size: 12
+                                    color: "white"
+                                    text: qsTr("Shoulder")
+                                }
+                            }
+                        }
+                    }
+                }
+
+                Item{
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: grid.width*0.6
+
+                    RowLayout
+                    {
+                        anchors.fill: parent
+                        spacing: 2
+
+                        Rectangle
+                        {
+                            color: "white"
+                            width: grid.width*0.48
+                            height: grid.width*0.6
+
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+
+                            Image {
+                                source: "qrc:/assets/images/EazerFit-14.jpg"
+                                width: parent.width*0.9
+                                height: width
+
+                                anchors.centerIn: parent
+                            }
+
+                            Rectangle
+                            {
+                                color: "#002e4d"
+                                height: 25
+                                width: txt5.width + 20
+                                radius: height/2
+
+                                anchors.bottom: parent.bottom
+                                anchors.bottomMargin: 5
+                                anchors.horizontalCenter: parent.horizontalCenter
+
+
+                                AppText
+                                {
+                                    id: txt5
+                                    anchors.centerIn: parent
+
+                                    size: 12
+                                    color: "white"
+                                    text: qsTr("Back of Arm")
+                                }
+                            }
+                        }
+
+                        Rectangle
+                        {
+                            color: "white"
+                            width: grid.width*0.48
+                            height: grid.width*0.6
+
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+
+                            Image {
+                                source: ""
+                                width: parent.width*0.9
+                                height: width
+
+                                anchors.centerIn: parent
+                            }
+
+                            Rectangle
+                            {
+                                color: "#002e4d"
+                                height: 25
+                                width: txt6.width + 20
+                                radius: height/2
+
+                                anchors.bottom: parent.bottom
+                                anchors.bottomMargin: 5
+                                anchors.horizontalCenter: parent.horizontalCenter
+
+
+                                AppText
+                                {
+                                    id: txt6
+                                    anchors.centerIn: parent
+
+                                    size: 12
+                                    color: "white"
+                                    text: qsTr("Abs")
+                                }
                             }
                         }
                     }
@@ -80,6 +331,7 @@ Rectangle {
 
             }
         }
+
 
         AppText
         {
@@ -99,9 +351,9 @@ Rectangle {
             color: root.color
             radius: height/2
 
-            Layout.preferredHeight: 40
+            Layout.preferredHeight: 30
             Layout.preferredWidth: 100
-            Layout.bottomMargin: 30
+            Layout.bottomMargin: 10
             Layout.alignment: Qt.AlignHCenter
 
             AppText

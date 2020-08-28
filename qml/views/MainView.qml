@@ -3,8 +3,11 @@ import QtQuick.Layouts 1.3
 
 import "../views"
 import "../components"
+
 Item {
     anchors.fill: parent
+
+    property alias activityPopup: activityPopup
 
     StackLayout
     {
@@ -31,5 +34,13 @@ Item {
         {
             id: workoutView
         }
+    }
+
+    ActivityPopup
+    {
+        id: activityPopup
+
+        x: (mainApp.width-width)/2
+        y: (mainApp.height-height)/2
     }
 }

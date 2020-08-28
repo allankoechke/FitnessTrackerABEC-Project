@@ -15,6 +15,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     cpp/main.cpp \
+    cpp/qmlinterface.cpp \
     cpp/radialbar.cpp
 
 RESOURCES += qml.qrc
@@ -31,4 +32,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    cpp/qmlinterface.h \
     cpp/radialbar.h

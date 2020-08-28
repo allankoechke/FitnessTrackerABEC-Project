@@ -1,6 +1,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 #include "radialbar.h"
+#include "qmlinterface.h"
 
 int main(int argc, char *argv[])
 {
@@ -10,7 +12,11 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
+    QmlInterface qmlInterface;
+
     const QUrl url(QStringLiteral("qrc:/qml/main.qml"));
+
+    engine.rootContext()->setContextProperty("QmlInterface", &qmlInterface);
 
     qmlRegisterType<RadialBar>("RadialBar", 1, 0, "RadialBar");
 
